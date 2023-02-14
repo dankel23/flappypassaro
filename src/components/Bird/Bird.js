@@ -15,7 +15,7 @@ function Bird({size = 30, top, left = 0}){
                 left: left
             }}
         >
-            Bird
+            PASSARO
             {/* <img src={bird} alt="Bird"/> */}
         </div>
     )

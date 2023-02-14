@@ -7,14 +7,27 @@ import Ground from './components/Ground';
 import city from './assets/city.jpg'
 import ground from './assets/ground.png'
 import Bird from './components/Bird/Bird';
+import { useEffect, useState } from 'react';
 
 function App() {
 
+	const [birdPosition, setBirdPosition] = useState(0)
+	
+	useEffect(() => {
+		let timeId = setInterval(() => {
+				setBirdPosition((pos) => pos + Consts.GRAVITY)
+		}, 24)
+
+		return () => {
+			clearInterval(timeId)
+		}
+
+	})
 
 	return (
 		<div className='App'>
 			<div className='Container'>
-
+				
 				<div
 					className='GameBox'
 					style={{
@@ -25,12 +38,11 @@ function App() {
 				>
 
 					{/* Add modals here */}
-
 					{/* Add obstacles here */}
 
 					<Bird
 						size={Consts.BIRD_SIZE}
-						top={Consts.birdPosition}
+						top={birdPosition}
 						left={Consts.BIRD_LEFT}
 					/>
 
@@ -40,7 +52,7 @@ function App() {
 						leftCrop={0}
 					/>
 				</div>
-				<span>Score</span>
+				<span>Pontos</span>
 				<Footer controlsContent={["JUMP - a / ↑ / Enter", "PAUSE - Space"]} />
 
 			</div>

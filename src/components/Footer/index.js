@@ -4,7 +4,7 @@ import './style.css'
 function Footer({controlsContent}) {
     return (
         <footer>
-            <strong>FLAPPY BIRD</strong>
+            <strong>FLAPPY PASSARO</strong>
             <hr/>
             <div>
                 {controlsContent.map(t => 
